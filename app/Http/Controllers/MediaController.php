@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Gate;
 
 class MediaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +24,8 @@ class MediaController extends Controller
     {
         if (Gate::check('isAdmin') || Gate::check('isSuperAdmin')) {
             $medias = Media::get();
-            return view('media.index', compact('medias'));
+            $categories = Category::orderBy('cat_slug', 'asc')->get();
+            return view('media.index', compact('medias', 'categories'));
         }else{
             return back();
         }
@@ -57,8 +63,14 @@ class MediaController extends Controller
                 $arr[] = Category::find($cats);
             }
             if ($request->has('file_name')) {
+<<<<<<< HEAD
                 // str_replace(search, replace, subject)
                 $fileName = $request->file_name->getClientOriginalName();
+=======
+                $search = array(" ", "(", ")", "_", "-", "/", "\\", "\'", "*", "=", "+", "@", "%", "^");
+                $stipedName = str_replace($search, "", $request->file_name->getClientOriginalName());
+                $fileName = $stipedName;
+>>>>>>> 37ff1592a2b6291e92b1d5ba4dce7a7377dce00e
                 $mediaSearch = Media::where('file_name', $fileName)->first();
                 if ($mediaSearch === NULL) {
                     foreach ($arr as $cate) {
@@ -74,7 +86,7 @@ class MediaController extends Controller
                     }
                     return back();
                 }else{
-                    return back();
+                    return back()->with('dup_vid', 'Video already exists!');
                 }
             }
             
@@ -125,6 +137,6 @@ class MediaController extends Controller
      */
     public function destroy(Media $media)
     {
-        //
+        // dd($media);
     }
 }

@@ -32,6 +32,12 @@
                 </tr>
             @endforeach
         </tbody>
+        @include('layouts.errors')
+        @if (session('delete_error_admin'))
+            <div class="alert alert-danger alert-posts">
+                {{ session('delete_error_admin') }}
+            </div>
+        @endif
     </table>    
 </div>
 
@@ -52,7 +58,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="role">Role</label>
-                        <input type="text" name="role" class="form-control" placeholder="Enter New Role">
+                        <input type="text" name="role" class="form-control" placeholder="Enter New Role" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

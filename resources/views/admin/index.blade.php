@@ -72,7 +72,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="role">Select User</label>
-                        <select name="user_id" class="form-control">
+                        <select name="user_id" class="form-control" required>
                             <option value="" selected disabled>Select User</option>
                             @foreach ($users as $user)
                                 @if (count($user->roles) < 1)
@@ -83,7 +83,7 @@
                     </div>
                     <div class="form-group">
                         <label for="role">Select Role</label>
-                        <select name="role_id" class="form-control">
+                        <select name="role_id" class="form-control" required>
                             <option value="" selected disabled>Select Role</option>
                             @foreach ($roles as $role)
                                 <option value="{{ $role->id }}">{{ ucfirst($role->role) }}</option>

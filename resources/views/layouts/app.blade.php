@@ -25,12 +25,43 @@
                 <a href="#zp-toolbar" class="sr-only">Skip to toolbar</a>
                 @include('layouts.sidebar')
             </div>
+<<<<<<< HEAD
             <div id="zp_content_wrap">
                 @include('layouts.top')
                 <main class="zp-primary-site" role="main">
                     <div class="zp-primary-wrap">
                         <div class="container-fluid">
                             @yield('content')
+=======
+        </nav>
+        <main class="py-4">
+            @auth
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4">
+                    <ul class="list-group">
+                        @if (Gate::check('isSuperAdmin') || Gate::check('isAdmin'))
+                        <li class="list-group-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
+                        <li class="list-group-item"><a href="{{ route('media.create') }}">Add Media</a></li>
+                        <li class="list-group-item"><a href="{{ route('media.index') }}">Media</a></li>
+                        <li class="list-group-item"><a href="{{ route('category.index') }}">Category</a></li>
+                        @endif
+                        @if (Gate::check('isSuperAdmin'))
+                        <li class="list-group-item"><a href="{{ route('register') }}">Register User</a></li>
+                        <li class="list-group-item"><a href="{{ route('admin.index') }}">Users</a></li>
+                        <li class="list-group-item"><a href="{{ route('role.index') }}">Roles</a></li>
+                      @endif
+                    </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">Dashboard</div>
+
+                            <div class="card-body">
+                                @yield('content')
+
+                            </div>
+>>>>>>> 37ff1592a2b6291e92b1d5ba4dce7a7377dce00e
                         </div>
                     </div>
                 </main>
