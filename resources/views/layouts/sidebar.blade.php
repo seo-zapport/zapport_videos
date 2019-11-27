@@ -20,6 +20,7 @@
 					<ul class="nav flex-column py-0 submenu">
 						<li class="nav-item"><a class="nav-link" href="{{ route('media.create') }}"><i class="fas fa-pencil-alt"></i> Add Media</a></li>
 						<li class="nav-item"><a class="nav-link" href="{{ route('media.index') }}"><i class="fas fa-photo-video"></i> Library</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{ route('category.index') }}"><i class="fas fa-photo-video"></i> Categories</a></li>
 					</ul>
 				</div>
 		    </li>

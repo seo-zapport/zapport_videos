@@ -16,7 +16,7 @@ jQuery(document).ready(function($){
 			{
 				console.log(response);
 				$('#cat_form')[0].reset();
-				$("#category_id").append('<option value="'+response.id+'" selected>'+response.categories+'</option>')
+				$("#category_id").prepend('<option value="'+response.id+'" selected>'+response.categories+'</option>')
 				$("#roleModal").modal('hide');
 			},
 			error: function(response)
