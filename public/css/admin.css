@@ -1,0 +1,212 @@
+/**
+ * System Name: Zapport Video Storage
+ *
+ * Author: Seo Web Developer Team
+ * 
+ * Description: This system will be the storage app for all the 
+ * videos that might be create/make in the near future.
+ *
+ * Text Domain: zapport-videos
+ * 
+ * Tags: upload-videos, elegant-style, bootstrap
+ */
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Variables
+# Normalize
+# Typography
+	## Headings
+	## Copy
+# Elements
+	## Lists
+	## Tables
+# Forms
+	## Buttons
+	## Fields
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Content
+	## Videos
+# Media
+	## 
+
+----------------------------------------------------------------*/
+
+/* Navigation */
+
+/*--------------------------------------------------------------
+## Naviation top
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+## Naviation sidebar
+--------------------------------------------------------------*/
+
+#zp-admin-menu-bg,
+#zp-admin-menu-wrap {
+  background-color: #00988D;
+  overflow: hidden;
+  width: 240px;
+}
+
+#zp-admin-menu-bg {
+  position: fixed;
+  top: 0;
+  bottom: -120px;
+  z-index: 1;
+}
+
+#zp-admin-menu-wrap {
+  position: relative;
+  float: left;
+  z-index: 1000;
+}
+
+#zp-admin-menu-wrap .nav {
+  padding: 0;
+  margin: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#zp-admin-menu-wrap .nav .show .submenu {
+  background-color: #004742;
+}
+
+#zp-admin-menu-wrap .nav-item {
+  position: relative;
+}
+
+#zp-admin-menu-wrap .nav-item .nav-link {
+  position: relative;
+  color: #fff;
+}
+
+#zp-admin-menu-wrap .nav-item .nav-link.active,
+#zp-admin-menu-wrap .nav-item .nav-link:active,
+#zp-admin-menu-wrap .nav-item .nav-link:focus,
+#zp-admin-menu-wrap .nav-item .nav-link:hover {
+  background: #007c73;
+  color: #fff;
+}
+
+#zp-admin-menu-wrap .nav-item .nav-link.active:before,
+#zp-admin-menu-wrap .nav-item .nav-link:active:before,
+#zp-admin-menu-wrap .nav-item .nav-link:focus:before,
+#zp-admin-menu-wrap .nav-item .nav-link:hover:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-left: 4px solid #f1f1f1;
+  right: 0;
+  top: 0px;
+}
+
+#zp-admin-menu-wrap .submenu {
+  background-color: #107d76;
+  color: #fff;
+}
+
+#zp-admin-menu-wrap .zp-user-info {
+  height: 80px;
+  padding: 10px 15px 10px 15px;
+  position: relative;
+  white-space: nowrap;
+}
+
+#zp-admin-menu-wrap .zp-image {
+  display: inline-block;
+  float: left;
+  margin-right: 12px;
+  margin-top: 6px;
+}
+
+#zp-admin-menu-wrap img.img-circle {
+  border-radius: 50%;
+  vertical-align: bottom !important;
+}
+
+#zp-admin-menu-wrap .zp-info-wrap {
+  color: #fff;
+  display: block;
+  margin-left: 60px;
+  position: relative;
+  top: 12px;
+}
+
+#zp-admin-menu-wrap .name,
+#zp-admin-menu-wrap .position {
+  margin: 0;
+  max-width: 200px;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#zp-admin-menu-wrap .name {
+  font-size: 14px;
+}
+
+#zp-admin-menu-wrap .position {
+  font-size: 12px;
+}
+
+.sticky-menu #zp-admin-menu-wrap {
+  position: fixed;
+}
+
+.zp-nav-closed {
+  display: none;
+  position: absolute;
+  right: 5px;
+  z-index: 15;
+}
+
+.zp-nav-closed i {
+  display: inline;
+  line-height: 1.5;
+  margin-right: 5px;
+  text-align: center;
+  width: 25px;
+}
+
+/* Content */
+
+/*--------------------------------------------------------------
+## Primary Content
+--------------------------------------------------------------*/
+
+.zp-video-admin {
+  height: auto;
+  min-height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+#zp_content_wrap {
+  height: 100%;
+}
+
+#zp_content_wrap .zp-primary-site {
+  padding-left: 20px;
+}
+
+#zp_content_wrap .zp-primary-wrap {
+  margin: 10px 20px 0 2px;
+}
+
+#zp_content_wrap,
+#zp_footer_wrap {
+  margin-left: 240px;
+}
+

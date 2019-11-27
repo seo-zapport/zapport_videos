@@ -57,7 +57,7 @@ class MediaController extends Controller
                 $arr[] = Category::find($cats);
             }
             if ($request->has('file_name')) {
-                str_replace(search, replace, subject)
+                // str_replace(search, replace, subject)
                 $fileName = $request->file_name->getClientOriginalName();
                 $mediaSearch = Media::where('file_name', $fileName)->first();
                 if ($mediaSearch === NULL) {

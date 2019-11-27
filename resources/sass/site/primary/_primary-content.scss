@@ -1,0 +1,18 @@
+.zp-video-admin{
+	height: auto;
+	min-height: 100%;
+	position: relative;
+	width: 100%;
+}
+#zp_content_wrap{
+	height: 100%;
+	.zp-primary-site{
+		padding-left: 20px;
+	}
+	.zp-primary-wrap{
+		margin:10px 20px 0 2px;
+	}
+}
+#zp_content_wrap,#zp_footer_wrap{
+	margin-left: 240px;
+}

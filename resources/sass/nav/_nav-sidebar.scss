@@ -1,0 +1,116 @@
+#zp-admin-menu-bg,#zp-admin-menu-wrap{
+    background-color: #00988D;
+    overflow: hidden;
+    width: 240px;
+}
+#zp-admin-menu-bg{
+	position: fixed;
+    top: 0;
+    bottom: -120px;
+    z-index: 1;
+}
+#zp-admin-menu-wrap{
+    position: relative;
+    float: left;
+    z-index: 1000;
+    .nav {
+	    padding: 0;
+	    margin: 0;
+	    -webkit-user-select: none;
+	    -moz-user-select: none;
+	    -ms-user-select: none;
+	    user-select: none;
+	    .show{
+	    	.submenu{
+	    		background-color: #004742;
+	    	}
+	    }
+	}
+	.nav-item{
+		position: relative;
+		.nav-link {
+		    position: relative;
+		    color: #fff;
+		    &.active,
+		    &:active,
+		    &:focus,
+		    &:hover{
+				background: #007c73;
+				color: #fff;
+				&:before{
+					content: "";
+					display: block;
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					border-left: 4px solid #f1f1f1;
+					right: 0;
+					top: 0px;		
+				}
+		    }
+		}
+	}
+
+	//*sub-menu*/
+	.submenu{
+		background-color:#107d76;
+		color: #fff;
+	}
+	//*sidebar-profile*/
+	.zp-user-info{
+	    height: 80px;
+	    padding: 10px 15px 10px 15px;
+	    position: relative;
+	    white-space: nowrap;
+	}
+	.zp-image{
+		display: inline-block;
+		float: left;
+		margin-right: 12px;
+		margin-top: 6px;
+	}
+	img{
+		&.img-circle{
+		    border-radius: 50%;
+		    vertical-align: bottom !important;
+		}
+	}
+	.zp-info-wrap{
+		color: #fff;
+		display: block;
+		margin-left: 60px;
+		position: relative;
+		top: 12px;
+	}
+	.name,
+	.position{
+		margin: 0;
+		max-width: 200px;
+		overflow: hidden;
+		-ms-text-overflow: ellipsis;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.name{font-size: 14px;}
+	.position{font-size: 12px;}
+}
+//*sticky-menu*/
+.sticky-menu {
+	#zp-admin-menu-wrap{
+		position: fixed;
+	}
+}
+//*menu-closed*/
+.zp-nav-closed{
+    display: none;
+    position: absolute;
+    right: 5px;
+    z-index: 15;
+    i{
+		display: inline;
+		line-height: 1.5;
+		margin-right: 5px;
+		text-align: center;
+		width: 25px;
+    }
+}
