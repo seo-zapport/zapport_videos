@@ -40,7 +40,7 @@ class MediaController extends Controller
     {
         if (Gate::check('isAdmin') || Gate::check('isSuperAdmin')) {
             $medias = Media::get();
-            $categories = Category::get();
+            $categories = Category::orderBy('created_at', 'desc')->get();
             return view('media.create', compact('medias', 'categories'));
         }else{
             return back();

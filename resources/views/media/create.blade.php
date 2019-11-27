@@ -26,8 +26,8 @@
                     <a class="btn btn-info btn-block text-white" href="#" data-toggle="modal" data-target="#roleModal"><i class="fa fa-plus"></i> Add Category </a>
                 </div>
                 <div class="form-group">
+                    <label for="category_id">Select Category</label>
                     <select name="category_id[]" id="category_id" class="form-control" multiple required>
-                        <option value="" selected disabled="true">Select Category</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ strtoupper($category->categories) }}</option>
                         @endforeach
