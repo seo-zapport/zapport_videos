@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Media;
+use App\Category;
 use App\Category_media;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryMediaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -78,8 +86,19 @@ class CategoryMediaController extends Controller
      * @param  \App\Category_media  $category_media
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category_media $category_media)
+    public function destroy(Category_media $category_media, $category_id, $media_id)
     {
-        //
+        if (Gate::check('isAdmin') || Gate::check('isSuperAdmin')) {
+            $cat = Category::find($category_id);
+            $med = Media::find($media_id);
+            if (count($med->categories) <= 1) {
+                $med->delete();
+            }
+            $med->categories()->detach($category_id);
+            Storage::delete('public/uploaded/media/'.$cat->cat_slug.'/'.$med->file_name);
+            return back();
+        }else{
+            return back();
+        }
     }
 }

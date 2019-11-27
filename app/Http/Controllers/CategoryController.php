@@ -9,6 +9,11 @@ use App\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +21,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        if (Gate::check('isAdmin') || Gate::check('isSuperAdmin')) {
+            $categories = Category::orderBy('categories', 'asc')->get();
+            return view('category.index', compact('categories'));
+        }else{
+            return back();
+        }
     }
 
     /**
@@ -45,7 +55,7 @@ class CategoryController extends Controller
                 $lastID = Category::create($atts);
                 $atts['id'] = $lastID->id;
 
-                $mediaFold = 'storage/uploaded/media/'.$lastID->cat_slug;
+                $mediaFold = 'storage/uploaded/media/'.strtolower($lastID->cat_slug);
                 if (!file_exists($mediaFold)) {
                     mkdir($mediaFold, 777, true);
                 }
@@ -54,6 +64,8 @@ class CategoryController extends Controller
             }else{
                 return back();
             }
+        }else{
+            return back();
         }
     }
 
@@ -88,7 +100,19 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        if (Gate::check('isAdmin') || Gate::check('isSuperAdmin')) {
+            $atts = $request->validate([
+                'categories'    =>  ['required','unique:categories,categories,'.$category->id],
+            ]);
+            $atts['categories'] = strtolower($request->categories);
+            $atts['cat_slug'] = str_replace(' ', '-', strtolower($request->categories));
+            $loc = 'storage/uploaded/media/';
+            rename($loc.'/'.$category->cat_slug, $loc.'/'.$atts['cat_slug']);
+            $category->update($atts);
+            return back();
+        }else{
+            return back();
+        }
     }
 
     /**
@@ -99,6 +123,17 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        if (Gate::check('isAdmin') || Gate::check('isSuperAdmin')) {
+            if (count($category->medias) > 0) {
+                return back()->with('delete_error', 'You cannot delete a category with post');
+            }else{
+                $loc = 'storage/uploaded/media/';
+                rmdir($loc.'/'.$category->cat_slug);
+                $category->delete();
+                return back();
+            }
+        }else{
+            return back();
+        }
     }
 }

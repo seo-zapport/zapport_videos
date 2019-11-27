@@ -26,6 +26,7 @@ class MediaRequest extends FormRequest
         return [
             'meta'  =>  'required',
             'file_name'  =>  'required|unique:media',
+            'category_id'   =>  'required',
         ];
     }
 
@@ -38,7 +39,8 @@ class MediaRequest extends FormRequest
     {
         return [
             'meta.required'  =>  'Meta is required',
-            'file_name'  =>  'File name is required',
+            'file_name.required'  =>  'File name is required',
+            'category_id.required'  =>  'Select at least One Category',
         ];
     }
 }

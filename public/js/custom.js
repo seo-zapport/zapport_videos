@@ -21,8 +21,24 @@ jQuery(document).ready(function($){
 			},
 			error: function(response)
 			{
-				console.log(response);
+	    		document.getElementById("errorlogTag").innerHTML = '';
+				if (jQuery.isEmptyObject(response.responseJSON) == false) {
+					var errors = response.responseJSON.errors.categories;
+					errors.forEach(function(i){
+						document.getElementById("errorlogTag").innerHTML += i + "<br>";
+					});
+				}
 			}
 		});
 	});
 });
+
+function copyFunction(id) {
+	console.log(id.value);
+	var copyText = document.getElementById(id);
+	console.log(copyText);
+	copyText.select();
+	copyText.setSelectionRange(0, 99999)
+	document.execCommand("copy");
+	alert("Copied the text: " + copyText.value);
+}

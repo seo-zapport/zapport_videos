@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Gate;
 
 class RoleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -95,7 +100,7 @@ class RoleController extends Controller
     {
         if (Gate::check('isSuperAdmin')) {
             if (count($role->users) > 0) {
-                return back();
+                return back()->with('delete_error_admin', 'You cannot delete a role with user');
             }else{
                 $role->delete();
                 return back();

@@ -9,11 +9,11 @@
             <div class="card-body">
                     <div class="form-group">
                         <label for="media">Media</label>
-                        <input type="file" name="file_name" class="form-control-file">
+                        <input type="file" name="file_name" class="form-control-file" required>
                     </div>
                     <div class="form-group">
                         <label for="meta">Meta</label>
-                        <input type="text" name="meta" class="form-control" placeholder="Enter Meta here">
+                        <input type="text" name="meta" class="form-control" placeholder="Enter Meta here" required>
                     </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
                     <a class="btn btn-info btn-block text-white" href="#" data-toggle="modal" data-target="#roleModal"><i class="fa fa-plus"></i> Add Category </a>
                 </div>
                 <div class="form-group">
-                    <select name="category_id[]" id="category_id" class="form-control" multiple>
+                    <select name="category_id[]" id="category_id" class="form-control" multiple required>
                         <option value="" selected disabled="true">Select Category</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ strtoupper($category->categories) }}</option>
@@ -47,7 +47,12 @@
     </div>
 </div>
 </form>
-
+@include('layouts.errors')
+@if (session('dup_vid'))
+    <div class="alert alert-danger alert-posts">
+        {{ session('dup_vid') }}
+    </div>
+@endif
 
 <!-- Modal Add -->
 <div class="modal fade bd-example-modal-lg" id="roleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -65,7 +70,8 @@
                     @csrf
                     <div class="form-group">
                         <label for="role">Category</label>
-                        <input type="text" name="categories" class="form-control" placeholder="Enter New Category">
+                        <input type="text" name="categories" class="form-control" placeholder="Enter New Category" required>
+                        <small id="errorlogTag" class="text-muted mt-2"></small>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

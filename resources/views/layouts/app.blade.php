@@ -79,6 +79,7 @@
                         <li class="list-group-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
                         <li class="list-group-item"><a href="{{ route('media.create') }}">Add Media</a></li>
                         <li class="list-group-item"><a href="{{ route('media.index') }}">Media</a></li>
+                        <li class="list-group-item"><a href="{{ route('category.index') }}">Category</a></li>
                         @endif
                         @if (Gate::check('isSuperAdmin'))
                         <li class="list-group-item"><a href="{{ route('register') }}">Register User</a></li>
