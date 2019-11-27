@@ -53,7 +53,7 @@ class MediaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(MediaRequest $request)
+ public function store(MediaRequest $request)
     {
         if (Gate::check('isAdmin') || Gate::check('isSuperAdmin')) {
             $atts = $this->validate($request, $request->rules(), $request->messages());
@@ -63,14 +63,9 @@ class MediaController extends Controller
                 $arr[] = Category::find($cats);
             }
             if ($request->has('file_name')) {
-<<<<<<< HEAD
-                // str_replace(search, replace, subject)
-                $fileName = $request->file_name->getClientOriginalName();
-=======
                 $search = array(" ", "(", ")", "_", "-", "/", "\\", "\'", "*", "=", "+", "@", "%", "^");
                 $stipedName = str_replace($search, "", $request->file_name->getClientOriginalName());
                 $fileName = $stipedName;
->>>>>>> 37ff1592a2b6291e92b1d5ba4dce7a7377dce00e
                 $mediaSearch = Media::where('file_name', $fileName)->first();
                 if ($mediaSearch === NULL) {
                     foreach ($arr as $cate) {
