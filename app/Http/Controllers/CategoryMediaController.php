@@ -6,6 +6,7 @@ use App\Media;
 use App\Category;
 use App\Category_media;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 
 class CategoryMediaController extends Controller
