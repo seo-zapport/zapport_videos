@@ -97,16 +97,9 @@ class MediaController extends Controller
      * @param  \App\Media  $media
      * @return \Illuminate\Http\Response
      */
-    public function show(Media $media, $id)
+    public function show(Media $media)
     {
-        if (Gate::check('isAdmin') || Gate::check('isSuperAdmin')) {
-            $medias = Media::get();
-            $categories = Category::orderBy('cat_slug', 'asc')->get();
-            $cat = Category::where( 'id', $id )->first();
-            return view( 'media.media_show', compact('categories', 'medias', 'cat') );
-        }else{
-            return back();
-        }
+        // 
     }
 
     /**
@@ -141,5 +134,16 @@ class MediaController extends Controller
     public function destroy(Media $media)
     {
         // dd($media);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Media  $media
+     * @return \Illuminate\Http\Response
+     */
+    public function show_cat(Category $category)
+    {
+        return view('media.media_show', compact('category'));
     }
 }

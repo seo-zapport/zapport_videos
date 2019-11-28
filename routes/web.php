@@ -39,11 +39,13 @@ Route::group(['prefix' => 'Dashboard'], function(){
 	// Route::put('category/{category}', 'CategoryController@update')->name('category.update');
 	// Route::delete('category/{category}', 'CategoryController@destroy')->name('category.destroy');
 });
+
+
 // Media
 Route::get('media', 'MediaController@index')->name('media.index');
 Route::get('media/create', 'MediaController@create')->name('media.create');
 Route::post('media', 'MediaController@store')->name('media.store');
-Route::get('media/{id}', 'MediaController@show')->name('name.show');
+Route::get('media/category/{category}', 'MediaController@show_cat')->name('cat.show');
 Route::delete('media/{category_id}/{media_id}', 'CategoryMediaController@destroy')->name('media.destroy');
 
 Route::get('category', 'CategoryController@index')->name('category.index');

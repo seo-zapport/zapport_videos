@@ -2,12 +2,12 @@
 
 @section('active_library', 'active')
 @section('heading')
-    <i class="fas fa-photo-video text-secondary"></i> {{ $cat['categories'] }}
+    <i class="fas fa-photo-video text-secondary"></i> {{ $category->categories }}
 @endsection
 
 @section('content')
 
-	{{-- @foreach ($categories->medias as $media)
+	@foreach ($category->medias as $media)
 		@php
 			$arr = array(" ", ".", "(", ")", "_", "-");
 			$arr2 = array("");
@@ -22,15 +22,10 @@
 				</div>
 			</div>
 		</div>
-	@endforeach --}}
-
-	@php
-		dd($categories->medias)
-	@endphp
+	@endforeach
 
 
 
-	@foreach ($categories as $category)
 		@foreach ($category->medias as $media)
 			<div class="modal fade media-model zp-core-ui" id="m{{ str_replace($arr, $arr2, $category->cat_slug).str_replace($arr, $arr2, $media->file_name) }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 				<div class="modal-dialog media-dialog" role="document">
@@ -120,5 +115,4 @@
 				</div>
 			</div>
 		@endforeach
-	@endforeach
 @endsection
