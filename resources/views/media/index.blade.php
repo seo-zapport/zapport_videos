@@ -1,9 +1,47 @@
 @extends('layouts.app')
 
+@section('active_library', 'active')
+@section('heading')
+    <i class="fas fa-photo-video text-secondary"></i> Library
+@endsection
+
 @section('content')
 
+<div class="card">
+	<div class="card-body p-3">
+		<div class="table-responsive">
+			<table class="table table-striped table-hover mb-0">
+				<thead class="thead-dark">
+					<tr>
+						<th>Name</th>
+						<th width="10%">No.Video</th>
+						<th width="10%">Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach ($categories as $category)
+						@if (count($category->medias) > 0)
+							<tr>
+								<td>
+
+									<a href="{{ url('media/' . $category->id ) }}" style="font-weight: 600">{{ $category->categories }}</a>
+									<div class="row-actions">
+										<a href="{{ url('media/' . $category->id ) }}" class="text-secondary"><small><i class="far fa-eye"></i> View</small></a>
+									</div>
+								</td>
+								<td width="10%">0</td>
+								<td width="10%">{{ date('Y/m/d', strtotime($category->created_at)) }}</td>
+							</tr>
+						@endif
+					@endforeach
+				</tbody>
+			</table>
+		</div>		
+	</div>
+</div>
+
 	
-<div class="row">
+{{-- <div class="row">
 	<div class="col-3">
 		<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 			@foreach ($categories as $category)
@@ -90,6 +128,6 @@
 			</div>
 		</div>
 	@endforeach
-@endforeach
+@endforeach --}}
 
 @endsection

@@ -12,15 +12,21 @@
 			</div>
 		</div>
 	    @if (Gate::check('isSuperAdmin') || Gate::check('isAdmin'))
-		    <li class="nav-item"><a class="nav-link {{ request()->is('dashboard' || 'Dashboard') ? 'active' : '' }}" href="{{ route('dashboard.index') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+		    <li class="nav-item"><a class="nav-link {{ request()->is('Dashboard') ? 'active' : '' }}" href="{{ route('dashboard.index') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
 		    <li class="nav-item">
 				<a href="#zpNavMedia" class="nav-link" data-toggle="collapse" data-target="#zpNavMedia">
 					<i class="fas fa-photo-video"></i> Media </a>
 				<div class="collapse {{ request()->is('media*') ? 'show' : '' }}" id="zpNavMedia">
 					<ul class="nav flex-column py-0 submenu">
-						<li class="nav-item"><a class="nav-link" href="{{ route('media.create') }}"><i class="fas fa-pencil-alt"></i> Add Media</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{ route('media.index') }}"><i class="fas fa-photo-video"></i> Library</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{ route('category.index') }}"><i class="fas fa-photo-video"></i> Categories</a></li>
+						<li class="nav-item">
+							<a class="nav-link @yield('active_add_media')" href="{{ route('media.create') }}"><i class="fas fa-pencil-alt"></i> Add Media</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link @yield('active_library')" href="{{ route('media.index') }}"><i class="fas fa-photo-video"></i> Library</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link @yield('active_category')" href="{{ route('category.index') }}"><i class="fas fa-photo-video"></i> Categories</a>
+						</li>
 					</ul>
 				</div>
 		    </li>

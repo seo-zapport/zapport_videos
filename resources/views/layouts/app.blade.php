@@ -29,6 +29,9 @@
                 @include('layouts.top')
                 <main class="zp-primary-site" role="main">
                     <div class="zp-primary-wrap">
+                        <h2 class="heading-title">
+                            @yield('heading')
+                        </h2>
                         <div class="container-fluid">
                             @yield('content')
                         </div>

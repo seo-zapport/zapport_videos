@@ -1,29 +1,44 @@
 @extends('layouts.app')
+@section('active_add_media', 'active')
+@section('heading')
+    <i class="fas fa-photo-video text-secondary"></i> Media
+@endsection
 
 @section('content')
 <form action="{{ route('media.store') }}" method="post" enctype="multipart/form-data">
 @csrf
 <div class="row">
-    <div class="col-8">
+    <div class="col-9">
+        <div class="media-attach-tools">
+            <div class="media-form-wrap">
+                <div class="uploader">
+                    <h5 class="text-muted my-4">Select a files to upload</h5>
+                    <label for="file_name" id="label_file_upload">
+                            Select Files
+                    </label>
+                    <br>
+                    <small id="errorlogMedia" class="text-muted mb-2 mt-2"></small>
+                    <div class="uploader_wrap">
+                        <input type="file" name="file_name" id="file_name" class="form-control-file" required>
+                    </div>
+                </div>                
+            </div>
+        </div>
         <div class="card">
             <div class="card-body">
-                    <div class="form-group">
-                        <label for="media">Media</label>
-                        <input type="file" name="file_name" class="form-control-file" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="meta">Meta</label>
-                        <input type="text" name="meta" class="form-control" placeholder="Enter Meta here" required>
-                    </div>
+                <div class="form-group">
+                    <label for="meta" ><strong>Meta</strong></label>
+                    <input type="text" name="meta" class="form-control" placeholder="Enter Meta here" required>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-4">
+    <div class="col-3">
         <div class="card">
-            <div class="card-header">Categories</div>
             <div class="card-body">
+                <div class="header-title"><p><strong>Categories</strong></p> <hr></div>
                 <div class="form-group">
-                    <a class="btn btn-info btn-block text-white" href="#" data-toggle="modal" data-target="#roleModal"><i class="fa fa-plus"></i> Add Category </a>
+                    <a class="btn btn-block btn-outline-info" href="#" data-toggle="modal" data-target="#roleModal"><i class="fa fa-plus"></i> Add Category </a>
                 </div>
                 <div class="form-group">
                     <label for="category_id">Select Category</label>
@@ -37,8 +52,8 @@
         </div><br>
 
         <div class="card">
-            <div class="card-header">Submit</div>
             <div class="card-body">
+                <div class="header-title"><p><strong>Publish</strong></p> <hr></div>
                 <div class="form-group">
                     <button class="btn btn-primary btn-block">Submit</button>
                 </div>

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('active_category','active')
 @section('content')
 
 <div class="table-responsive">

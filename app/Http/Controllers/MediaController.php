@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Media;
 use App\Category;
+use App\CategoryMediaController;
 use Illuminate\Http\Request;
 use App\Http\Requests\MediaRequest;
 use Illuminate\Support\Facades\Gate;
@@ -96,9 +97,16 @@ class MediaController extends Controller
      * @param  \App\Media  $media
      * @return \Illuminate\Http\Response
      */
-    public function show(Media $media)
+    public function show(Media $media, $id)
     {
-        //
+        if (Gate::check('isAdmin') || Gate::check('isSuperAdmin')) {
+            $medias = Media::get();
+            $categories = Category::orderBy('cat_slug', 'asc')->get();
+            $cat = Category::where( 'id', $id )->first();
+            return view( 'media.media_show', compact('categories', 'medias', 'cat') );
+        }else{
+            return back();
+        }
     }
 
     /**

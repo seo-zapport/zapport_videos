@@ -210,3 +210,590 @@
   margin-left: 240px;
 }
 
+.heading-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 15px;
+  margin-bottom: 24px;
+}
+
+/*--------------------------------------------------------------
+## Admin Media
+--------------------------------------------------------------*/
+
+.media-attach-tools {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.media-attach-tools .media-form-wrap {
+  border: 4px dashed #cbcbcb;
+  margin: 0.5em 0em 0.7em;
+  padding-bottom: 2.75em;
+  padding-top: 2.75em;
+  min-height: 230px;
+}
+
+/**frame-modal*/
+
+.modal.media-model * {
+  box-sizing: content-box;
+}
+
+.modal.fade .modal-dialog.media-dialog {
+  max-width: 100%;
+  position: static;
+  -webkit-transform: none;
+  transform: none;
+}
+
+.modal.media-model {
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  bottom: 30px;
+  z-index: 160000;
+  width: auto;
+  height: auto;
+}
+
+.modal .edit-attachment-frame {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.modal .edit-attachment-frame .media-frame-title {
+  left: 0;
+  right: 0;
+}
+
+.media-model label,
+.media-model legend {
+  font-size: 13px;
+}
+
+.edit-media-header {
+  overflow: hidden;
+}
+
+.media-frame-title {
+  position: absolute;
+  top: 0;
+  left: 200px;
+  right: 0;
+  height: 50px;
+  z-index: 200;
+}
+
+.media-frame-title h1 {
+  padding: 0 16px;
+  font-size: 22px;
+  line-height: 50px;
+  margin: 0;
+}
+
+.media-frame-content {
+  position: absolute;
+  top: 84px;
+  left: 200px;
+  right: 0;
+  bottom: 61px;
+  height: auto;
+  width: auto;
+  margin: 0;
+  overflow: auto;
+  background: #fff;
+  border-top: 1px solid #ddd;
+}
+
+.edit-attachment-frame .media-frame-content,
+.edit-attachment-frame .media-frame-router {
+  left: 0;
+}
+
+.edit-attachment-frame .media-frame-content {
+  border-bottom: none;
+  bottom: 0;
+  top: 50px;
+}
+
+.edit-attachment-frame .attachment-details {
+  position: absolute;
+  overflow: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  box-shadow: inset 0 4px 4px -4px rgba(0, 0, 0, 0.1);
+}
+
+.edit-attachment-frame .attachment-media-view {
+  float: left;
+  width: 65%;
+  height: 100%;
+}
+
+.edit-attachment-frame .attachment-media-view .thumbnail {
+  box-sizing: border-box;
+  padding: 16px;
+  height: 100%;
+}
+
+.edit-attachment-frame .attachment-media-view .details-image {
+  display: block;
+  margin: 0 auto 16px;
+  max-width: 100%;
+  max-height: 90%;
+  max-height: calc(100% - 42px);
+  background-image: linear-gradient(45deg, #c4c4c4 25%, transparent 25%, transparent 75%, #c4c4c4 75%, #c4c4c4), linear-gradient(45deg, #c4c4c4 25%, transparent 25%, transparent 75%, #c4c4c4 75%, #c4c4c4);
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
+}
+
+.edit-attachment-frame .attachment-info {
+  overflow: auto;
+  box-sizing: border-box;
+  margin-bottom: 0;
+  padding: 12px 16px 0;
+  width: 35%;
+  height: 100%;
+  box-shadow: inset 0 4px 4px -4px rgba(0, 0, 0, 0.1);
+  border-bottom: 0;
+  border-left: 1px solid #ddd;
+  background: #f3f3f3;
+}
+
+.edit-attachment-frame .attachment-info .details,
+.edit-attachment-frame .attachment-info .settings {
+  position: relative;
+  overflow: hidden;
+  float: none;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.edit-attachment-frame .attachment-info .filename {
+  font-weight: 400;
+  color: #666;
+}
+
+.edit-attachment-frame input,
+.edit-attachment-frame textarea {
+  padding: 6px 8px;
+  line-height: 16px;
+}
+
+.attachment-details {
+  position: relative;
+  overflow: auto;
+}
+
+.attachment-details .setting,
+.media-sidebar .setting {
+  display: block;
+  float: left;
+  width: 100%;
+  margin: 1px 0;
+}
+
+.attachment-details .setting .value,
+.attachment-details .setting input[type=email],
+.attachment-details .setting input[type=number],
+.attachment-details .setting input[type=password],
+.attachment-details .setting input[type=search],
+.attachment-details .setting input[type=text],
+.attachment-details .setting input[type=url],
+.attachment-details .setting input[type=tel],
+.attachment-details .setting textarea,
+.attachment-details .setting + .description,
+.media-sidebar .setting .value,
+.media-sidebar .setting input[type=email],
+.media-sidebar .setting input[type=number],
+.media-sidebar .setting input[type=password],
+.media-sidebar .setting input[type=search],
+.media-sidebar .setting input[type=text],
+.media-sidebar .setting input[type=url],
+.media-sidebar .setting input[type=tel],
+.media-sidebar .setting textarea,
+.media-sidebar .setting + .description {
+  box-sizing: border-box;
+  margin: 1px;
+  width: 65%;
+  float: right;
+}
+
+.attachment-details .setting span,
+.media-sidebar .setting span {
+  min-width: 30%;
+  margin-right: 4%;
+  font-size: 12px;
+  text-align: right;
+  word-wrap: break-word;
+}
+
+.attachment-details .setting .value,
+.attachment-details .setting + .description,
+.attachment-details .setting .value,
+.media-sidebar .setting .value,
+.media-sidebar .setting + .description,
+.media-sidebar .setting .value {
+  margin: 0 1px;
+  text-align: left;
+}
+
+.attachment-details .setting .input-group,
+.media-sidebar .setting .input-group {
+  width: 65%;
+}
+
+.attachment-details .setting .input-group input[type=email],
+.attachment-details .setting .input-group input[type=number],
+.attachment-details .setting .input-group input[type=password],
+.attachment-details .setting .input-group input[type=search],
+.attachment-details .setting .input-group input[type=text],
+.attachment-details .setting .input-group input[type=url],
+.attachment-details .setting .input-group input[type=tel],
+.attachment-details .setting .input-group textarea,
+.media-sidebar .setting .input-group input[type=email],
+.media-sidebar .setting .input-group input[type=number],
+.media-sidebar .setting .input-group input[type=password],
+.media-sidebar .setting .input-group input[type=search],
+.media-sidebar .setting .input-group input[type=text],
+.media-sidebar .setting .input-group input[type=url],
+.media-sidebar .setting .input-group input[type=tel],
+.media-sidebar .setting .input-group textarea {
+  margin: 0;
+}
+
+.attachment-details .setting .input-group textarea,
+.media-sidebar .setting .input-group textarea {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 163px;
+  resize: none;
+}
+
+.attachment-details .setting span,
+.attachment-details label span,
+.compat-item .setting span,
+.compat-item label span,
+.media-sidebar .setting span,
+.media-sidebar label span {
+  float: left;
+  min-height: 22px;
+  padding-top: 8px;
+  line-height: 16px;
+  font-weight: 400;
+  color: #666;
+}
+
+.media-sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 267px;
+  padding: 0 16px 24px;
+  z-index: 75;
+  background: #f3f3f3;
+  border-left: 1px solid #ddd;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.media-uploader-status {
+  position: relative;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  max-width: 400px;
+}
+
+.attachment-info {
+  overflow: hidden;
+  min-height: 60px;
+  margin-bottom: 16px;
+  line-height: 18px;
+  color: #666;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 11px;
+}
+
+.attachment-info .details {
+  float: left;
+  font-size: 12px;
+  max-width: 100%;
+}
+
+.attachment-info .filename {
+  font-weight: 600;
+  color: #444;
+  word-wrap: break-word;
+}
+
+.edit-attachment-frame .edit-media-header .left,
+.edit-attachment-frame .edit-media-header .right,
+.modal-open .media-modal-close {
+  cursor: pointer;
+  color: #72777c;
+  background-color: transparent;
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  border: 0;
+  border-left: 1px solid #ddd;
+  -webkit-transition: color 0.1s ease-in-out, background 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out, background 0.1s ease-in-out;
+}
+
+.media-modal-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  min-height: 300px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+  background: #fcfcfc;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.media-modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  background: 0 0;
+  color: #666;
+  z-index: 1000;
+  cursor: pointer;
+  outline: 0;
+  -webkit-transition: color 0.1s ease-in-out, background 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out, background 0.1s ease-in-out;
+}
+
+.media-frame-router {
+  position: absolute;
+  top: 50px;
+  left: 200px;
+  right: 0;
+  height: 36px;
+  z-index: 200;
+}
+
+.media-router {
+  position: relative;
+  padding: 0 6px;
+  margin: 0;
+  clear: both;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.media-router .nav-link {
+  padding: 0.3rem 1rem;
+}
+
+.media-toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 60px;
+  padding: 0 16px;
+  border: 0 solid #ddd;
+  overflow: hidden;
+}
+
+.media-frame-toolbar {
+  position: absolute;
+  left: 200px;
+  right: 0;
+  bottom: 0;
+  height: 60px;
+  z-index: 100;
+  bottom: 60px;
+  height: auto;
+}
+
+.media-frame-toolbar .media-toolbar {
+  top: auto;
+  bottom: -45px;
+  height: auto;
+  overflow: visible;
+  border-top: 1px solid #ddd;
+}
+
+.media-frame-toolbar .btn {
+  height: 25px;
+  margin-top: 6px;
+}
+
+.media-toolbar-primary {
+  float: right;
+  height: 100%;
+}
+
+.media-frame .uploader-inline {
+  margin-bottom: 20px;
+  padding: 0;
+  text-align: center;
+}
+
+.uploader-inline-content {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+}
+
+.uploader-inline-content .upload-ui {
+  margin: 2em 0;
+}
+
+.uploader-inline-content .btn-custom {
+  border: 1px solid #ccc;
+  background: whitesmoke;
+  box-shadow: 0 1px 0 #ccc;
+  vertical-align: top;
+}
+
+.uploader-inline-content input[type=file] {
+  width: 15%;
+  margin: auto;
+}
+
+.uploader-inline h2,
+.uploader-inline h3 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 400;
+  margin: 0;
+}
+
+/**Video*/
+
+.mejs-container {
+  background: #000;
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, serif;
+  position: relative;
+  text-align: left;
+  text-indent: 0;
+  vertical-align: top;
+}
+
+.mejs-container {
+  width: 100%;
+  max-width: 100%;
+}
+
+.mejs-container.zp-video-wrap {
+  width: 1177px;
+  height: 662.063px;
+  min-width: 217px;
+}
+
+.mejs-container video {
+  max-width: 100%;
+}
+
+.mejs-container,
+.mejs-container .mejs-controls,
+.mejs-embed,
+.mejs-embed body {
+  background-color: #343434;
+}
+
+/**Uploader*/
+
+.uploader {
+  text-align: center;
+}
+
+.uploader h5 {
+  margin-top: 34px !important;
+}
+
+.uploader_wrap {
+  position: absolute;
+  overflow: hidden;
+  z-index: 0;
+  top: 0;
+  left: 765px;
+  width: 84px;
+  height: 28px;
+}
+
+.uploader_wrap input#upload_file,
+.uploader_wrap input#file_name,
+.uploader_wrap input#diagnosis,
+.uploader_wrap input#diagnosis_show {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+label#label_file_upload,
+label.lbl_upload {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 26px;
+  height: 28px;
+  margin: 0;
+  padding: 0 10px 1px;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+label#label_file_upload:active,
+label.lbl_upload:active {
+  background: #eee;
+  border-color: #999;
+  box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5);
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+}
+
+label#label_file_upload:hover,
+label.lbl_upload:hover {
+  background: #fafafa;
+  border-color: #999;
+  color: #23282d;
+}
+
+label#label_file_upload:focus,
+label.lbl_upload:focus {
+  border-color: #5b9dd9;
+  box-shadow: 0 0 3px rgba(0, 115, 170, 0.8);
+}
+
+#label_file_upload,
+.lbl_upload {
+  color: #555;
+  border-color: #ccc;
+  background: #f7f7f7;
+  box-shadow: 0 1px 0 #ccc;
+  vertical-align: top;
+}
+
