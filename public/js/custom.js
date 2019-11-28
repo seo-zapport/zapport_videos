@@ -1,4 +1,9 @@
 jQuery(document).ready(function($){
+	$('.show-edit').on('click', function(e){
+	    $('.form-hidden-'+this.id).toggleClass('form-hide');
+	});
+
+
 	$("#cat_form").on('submit' ,function(e){
 		e.preventDefault();
 		var categories = $('#cat_form input[name="categories"]').val();
@@ -37,6 +42,31 @@ jQuery(document).ready(function($){
 		$(this).find('td').find('.row-actions').addClass('visible');
 	},function(e){
 		$(this).find('td').find('.row-actions').removeClass('visible');
+	});
+
+	// Sidebar hide&show_____________________________________________________________________________________________________
+	$('.zp-navbar-show').on('click', function(e){
+		$('#zp_nav').stop(true, true).animate({
+		  opacity: 1,
+		  marginLeft: '0'
+		}, 'slow', 'linear');
+	});
+
+	$('.zp-nav-closed').on('click', function(e){
+		$('#zp_nav').stop(true, true).animate({
+		  opacity: 0,
+		  marginLeft: '-999px'
+		}, 'slow', 'linear');
+	});
+
+	// Remove inline style_____________________________________________________________________________________________________
+	$(window).on('load resize', function(){
+		var viewWidth = $(window).width();
+		if ( viewWidth >= 750) {
+		  if ( $('#zp_nav').attr('style') ) {
+		    $('#zp_nav').removeAttr('style');
+		  }
+		}
 	});
 });
 

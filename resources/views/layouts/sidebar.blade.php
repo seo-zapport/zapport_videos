@@ -33,9 +33,9 @@
 		    
 	    @endif
 	    @if (Gate::check('isSuperAdmin'))
-		    <li class="nav-item"><a class="nav-link" href="{{ route('register') }}"><i class="fas fa-user-edit"></i> Register User</a></li>
-		    <li class="nav-item"><a class="nav-link" href="{{ route('admin.index') }}"><i class="fas fa-users"></i> Users</a></li>
-		    <li class="nav-item"><a class="nav-link" href="{{ route('role.index') }}"><i class="fas fa-cogs"></i> Roles</a></li>
+		    <li class="nav-item"><a class="nav-link @yield('active_register')" href="{{ route('register') }}"><i class="fas fa-user-edit"></i> Register User</a></li>
+		    <li class="nav-item"><a class="nav-link @yield('active_user')" href="{{ route('admin.index') }}"><i class="fas fa-users"></i> Users</a></li>
+		    <li class="nav-item"><a class="nav-link @yield('active_roles')" href="{{ route('role.index') }}"><i class="fas fa-cogs"></i> Roles</a></li>
 	  @endif
 	</ul>	
 </div>

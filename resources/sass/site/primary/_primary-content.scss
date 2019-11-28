@@ -34,4 +34,22 @@
     &.visible{
     	position: static;
     }
+    a,span,button{
+    	font-size: 12px;
+    	padding: 0;
+    }
+}
+
+.form-hide{
+	display: none;
+}
+
+.zp-rounded {
+    border-radius: 50px;
+}
+
+
+//text
+.text-zp{
+    color: #00988d;
 }

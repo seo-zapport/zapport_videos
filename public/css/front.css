@@ -1,0 +1,38 @@
+.zp-front{
+    background: url('../images/bg-hero.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100vh;
+    position: relative;
+}
+.zp-smoke{
+    position: relative;
+}
+.zp-smoke:before{
+    content: '';
+    background-color: rgba(0, 0, 0, 0.65);
+    display: block;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    left:0;
+    right: 0;
+    margin: auto;
+}
+.zp-logo-wrap{
+    position: absolute;
+    z-index: 5;
+    text-align: center;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    top: 20%;
+}
+@media (min-width: 768px){
+    .zp-smoke:before{
+        height: 100%;
+        width: 100%;
+        margin: auto;
+    }
+}

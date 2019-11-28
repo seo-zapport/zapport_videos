@@ -1,0 +1,86 @@
+/**Register*/
+.signin-container {
+    border-radius: 2px;
+    position: relative;
+    z-index: 999;
+    display: block;
+    margin: 20px 0px;
+    box-shadow: 2px 3px 5px #d8d8d8;
+    border-top: 2px solid #53cac1;
+	.sigin-info {
+	    background: #555;
+	    display: block;
+	    overflow: hidden;
+	    padding: 20px 30px;
+	    text-align: center;
+	}
+	.signin-form {
+	    background: #fff;
+	    position: relative;
+	    padding: 30px;
+	    display: block;
+	    label{
+			font-size: 15px;
+			color: #777;
+			line-height: 1.4;	
+	    }
+	    .zp-bg-clan{
+	    	position: absolute;
+	    	top:0;
+	    	right: 0;
+	    	left: 0;
+	    	width: 100%;
+	    }
+	}
+	.signin-text{
+	    color: #777;
+	    font-size: 14px;
+	    line-height: 1.4;
+	    margin-bottom: 6px;
+	    span.signin-v{
+			color: #353535;
+			font-size: 16px;
+			font-style: italic;
+	    }	
+	}
+}
+.admin-register,
+.admin-reset{
+	.sigin-info{
+		background: rgba(54, 197, 187, 0.8);
+		.slogan{
+			color: #fff;
+			font-size: 16px;
+			font-weight: 300;
+			margin-top: 5px;
+		}
+		ul {
+		    display: none;
+		}
+	}
+	.signin-text {
+	    color: #777;
+	    display: block;
+	    font-size: 15px;
+	    font-style: italic;
+	    margin-bottom: 25px;
+	    position: relative;
+	    text-align: center;
+	    &:before{
+		    background: #e4e4e4;
+		    content: "";
+		    display: block;
+		    height: 1px;
+		    left: 0;
+		    position: absolute;
+		    right: 0;
+		    top: 50%;
+		}
+		span {
+		    background: #fff;
+		    display: inline-block;
+		    padding: 0 20px;
+		    position: relative;
+		}
+	}
+}

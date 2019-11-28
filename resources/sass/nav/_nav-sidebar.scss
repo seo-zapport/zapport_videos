@@ -114,3 +114,26 @@
 		width: 25px;
     }
 }
+/**Mobile-hide-show-btn*/
+.zp-navbar-show {
+    padding: 0.25rem 0.75rem;
+    font-size: 1.125rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+.navbar-light .zp-navbar-show {
+    color: rgba(0, 0, 0, 0.5);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+.zp-nav-closed{
+	display: none;
+	position: absolute;
+    right: 5px;
+    z-index: 15;
+    i {
+	    font-size: 28px;
+	    color: #fff;
+	}	
+}

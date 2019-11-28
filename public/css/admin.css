@@ -33,7 +33,7 @@
 # Content
 	## Videos
 # Media
-	## 
+	## Media Query
 
 ----------------------------------------------------------------*/
 
@@ -42,6 +42,10 @@
 /*--------------------------------------------------------------
 ## Naviation top
 --------------------------------------------------------------*/
+
+.top-navbar img {
+  width: 140px;
+}
 
 /*--------------------------------------------------------------
 ## Naviation sidebar
@@ -180,6 +184,34 @@
   width: 25px;
 }
 
+/**Mobile-hide-show-btn*/
+
+.zp-navbar-show {
+  padding: 0.25rem 0.75rem;
+  font-size: 1.125rem;
+  line-height: 1;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.navbar-light .zp-navbar-show {
+  color: rgba(0, 0, 0, 0.5);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.zp-nav-closed {
+  display: none;
+  position: absolute;
+  right: 5px;
+  z-index: 15;
+}
+
+.zp-nav-closed i {
+  font-size: 28px;
+  color: #fff;
+}
+
 /* Content */
 
 /*--------------------------------------------------------------
@@ -229,6 +261,25 @@
   position: static;
 }
 
+.row-actions a,
+.row-actions span,
+.row-actions button {
+  font-size: 12px;
+  padding: 0;
+}
+
+.form-hide {
+  display: none;
+}
+
+.zp-rounded {
+  border-radius: 50px;
+}
+
+.text-zp {
+  color: #00988d;
+}
+
 /*--------------------------------------------------------------
 ## Admin Media
 --------------------------------------------------------------*/
@@ -244,6 +295,215 @@
   padding-bottom: 2.75em;
   padding-top: 2.75em;
   min-height: 230px;
+}
+
+.media-frame {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.media-frame.hide-menu .media-frame-content,
+.media-frame.hide-menu .media-frame-router,
+.media-frame.hide-menu .media-frame-title,
+.media-frame.hide-menu .media-frame-toolbar {
+  left: 0;
+}
+
+.media-frame.mode-grid {
+  position: static;
+}
+
+.media-frame.mode-grid .attachment-browser .attachment,
+.media-frame.mode-grid .media-frame-content,
+.media-frame.mode-grid .uploader-inline-content {
+  position: static;
+}
+
+.media-frame.mode-grid .media-frame-content {
+  background-color: transparent;
+  border: none;
+}
+
+.media-frame.mode-grid .attachment-browser {
+  padding: 0;
+}
+
+.media-frame .attachment-browser {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.media-frame-content {
+  position: absolute;
+  top: 84px;
+  left: 200px;
+  right: 0;
+  bottom: 61px;
+  height: auto;
+  margin: 0;
+  width: auto;
+  overflow: auto;
+  background: #fff;
+  border-top: 1px solid #d1d1d1;
+}
+
+.attachment-browser .attachment {
+  padding: 2px 8px 8px;
+}
+
+.attachment-browser .attachment,
+.attachment-browser.hide-sidebar .uploader-inline {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 300px;
+  bottom: 0;
+  overflow: auto;
+  outline: 0;
+}
+
+.attachment-browser.hide-sidebar .attachment,
+.attachment-browser.hide-sidebar .uploader-inline {
+  right: 0;
+  margin-right: 0;
+}
+
+.zp-core-ui .attachment-list {
+  position: relative;
+  float: left;
+  padding: 8px;
+  margin: 0;
+  color: #444;
+  cursor: pointer;
+  list-style: none;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 25%;
+  box-sizing: border-box;
+}
+
+.zp-core-ui .attachment {
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.media-frame-content[data-columns="11"] .attachment-list {
+  width: 9.09%;
+}
+
+.media-frame-content[data-columns="10"] .attachment-list {
+  width: 10%;
+}
+
+.zp-core-ui .attachment-preview {
+  position: relative;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+  background: #eee;
+  cursor: pointer;
+}
+
+.zp-core-ui .attachment-preview:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+.zp-core-ui .attachment .thumbnail {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+  -webkit-transition: opacity 0.1s;
+  transition: opacity 0.1s;
+}
+
+.zp-core-ui .attachment .thumbnail:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.zp-core-ui .attachment .thumbnail .centered {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translate(50%, 50%);
+          transform: translate(50%, 50%);
+}
+
+.zp-core-ui .attachment .thumbnail .centered img,
+.zp-core-ui .attachment .thumbnail .centered i {
+  left: 0;
+  right: 0;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.zp-core-ui .attachment .thumbnail img,
+.zp-core-ui .attachment .thumbnail i {
+  position: absolute;
+}
+
+.zp-core-ui .attachment .landscape img,
+.zp-core-ui .attachment .landscape i {
+  max-height: 100%;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
+.zp-core-ui .attachment .filename {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  max-height: 100%;
+  word-wrap: break-word;
+  text-align: center;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+.zp-core-ui .attachment .filename div {
+  font-size: 14px;
+  font-weight: normal;
+  padding: 5px 10px;
+  word-break: break-word;
+}
+
+.no-media-wrap {
+  display: -webkit-box !important;
+  display: flex !important;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding: 20% 0;
+}
+
+.no-media-wrap .no-media {
+  color: #828282;
+  font-size: 18px;
 }
 
 /**frame-modal*/
@@ -807,5 +1067,310 @@ label.lbl_upload:focus {
   background: #f7f7f7;
   box-shadow: 0 1px 0 #ccc;
   vertical-align: top;
+}
+
+/*--------------------------------------------------------------
+## Admin Register User
+--------------------------------------------------------------*/
+
+/**Register*/
+
+.signin-container {
+  border-radius: 2px;
+  position: relative;
+  z-index: 999;
+  display: block;
+  margin: 20px 0px;
+  box-shadow: 2px 3px 5px #d8d8d8;
+  border-top: 2px solid #53cac1;
+}
+
+.signin-container .sigin-info {
+  background: #555;
+  display: block;
+  overflow: hidden;
+  padding: 20px 30px;
+  text-align: center;
+}
+
+.signin-container .signin-form {
+  background: #fff;
+  position: relative;
+  padding: 30px;
+  display: block;
+}
+
+.signin-container .signin-form label {
+  font-size: 15px;
+  color: #777;
+  line-height: 1.4;
+}
+
+.signin-container .signin-form .zp-bg-clan {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+}
+
+.signin-container .signin-text {
+  color: #777;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.signin-container .signin-text span.signin-v {
+  color: #353535;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.admin-register .sigin-info,
+.admin-reset .sigin-info {
+  background: rgba(54, 197, 187, 0.8);
+}
+
+.admin-register .sigin-info .slogan,
+.admin-reset .sigin-info .slogan {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 5px;
+}
+
+.admin-register .sigin-info ul,
+.admin-reset .sigin-info ul {
+  display: none;
+}
+
+.admin-register .signin-text,
+.admin-reset .signin-text {
+  color: #777;
+  display: block;
+  font-size: 15px;
+  font-style: italic;
+  margin-bottom: 25px;
+  position: relative;
+  text-align: center;
+}
+
+.admin-register .signin-text:before,
+.admin-reset .signin-text:before {
+  background: #e4e4e4;
+  content: "";
+  display: block;
+  height: 1px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+
+.admin-register .signin-text span,
+.admin-reset .signin-text span {
+  background: #fff;
+  display: inline-block;
+  padding: 0 20px;
+  position: relative;
+}
+
+/* Login */
+
+.zp-video-admin .login-container {
+  border-radius: 2px;
+  display: block;
+  margin: 20px 14px;
+  position: relative;
+  z-index: 999;
+  box-shadow: 2px 3px 5px #d8d8d8;
+}
+
+.zp-video-admin .login-header {
+  background: #5bcec6;
+  display: block;
+  overflow: hidden;
+  padding: 20px 30px;
+  text-align: center;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.zp-video-admin .login-header img {
+  margin-bottom: 15px;
+}
+
+.zp-video-admin .login-form {
+  background: #fff;
+  display: block;
+  padding: 30px 20px;
+  position: relative;
+}
+
+.zp-video-admin .login-form label {
+  font-size: 15px;
+  color: #777;
+  line-height: 1.4;
+}
+
+.zp-video-admin .login-text {
+  color: #777;
+  display: block;
+  font-size: 15px;
+  font-style: italic;
+  margin-bottom: 25px;
+  position: relative;
+  text-align: center;
+}
+
+.zp-video-admin .login-text:before {
+  background: #e4e4e4;
+  content: "";
+  display: block;
+  height: 1px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+
+.zp-video-admin .login-text span {
+  background: #fff;
+  display: inline-block;
+  padding: 0 20px;
+  position: relative;
+}
+
+@media (min-width: 480px) {
+  .zp-video-admin .login-container {
+    width: 380px;
+    margin: 80px auto;
+  }
+
+  .zp-video-admin .login-form {
+    padding: 30px;
+  }
+}
+
+/* Media Query */
+
+@media (min-width: 769px) {
+  /**admin-navbar*/
+
+  .navbar-expand-md .zp-navbar-show {
+    display: none;
+  }
+
+  /**signin*/
+
+  .signin-container {
+    width: 430px;
+    display: table;
+    table-layout: fixed;
+    margin: 20px 0;
+  }
+
+  .signin-container .sigin-info {
+    display: table-cell;
+    padding: 30px;
+    text-align: left;
+    vertical-align: top;
+    width: 40%;
+  }
+
+  .signin-container .sigin-info ul {
+    color: #fff;
+    display: block;
+    font-size: 13px;
+    font-weight: 300;
+    margin: 30px 0 0;
+    padding: 0;
+  }
+
+  .signin-container .sigin-info ul li {
+    list-style: none;
+    margin: 0;
+    padding: 7px 0;
+  }
+
+  .signin-container .signin-form {
+    display: table-cell;
+    vertical-align: top;
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  #zp-admin-menu-bg,
+  #zp-admin-menu-wrap {
+    width: 100%;
+  }
+
+  #zp_content_wrap,
+  #zp_footer_wrap {
+    margin-left: 0;
+  }
+
+  #zp_content_wrap {
+    /**wrapper*/
+  }
+
+  #zp_content_wrap .zp-primary-site {
+    padding-left: 0;
+  }
+
+  #zp_content_wrap .zp-primary-wrap {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  #zp_nav {
+    opacity: 0;
+    margin-left: -999px;
+    position: relative;
+    z-index: 100;
+  }
+
+  .zp-nav-closed {
+    display: block;
+  }
+
+  .sticky-menu #zp-admin-menu-wrap {
+    height: 100%;
+    overflow-y: scroll;
+  }
+
+  /**Profile-employee*/
+
+  .employee_wrap {
+    width: 135px;
+  }
+
+  .panel.employee-photo {
+    min-height: 100%;
+  }
+
+  .med-name {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .edit-attachment-frame .attachment-media-view {
+    float: none;
+    height: auto;
+    width: 100%;
+  }
+
+  .edit-attachment-frame .attachment-info {
+    height: auto;
+    width: 100%;
+  }
 }
 
