@@ -20,19 +20,17 @@
 				</thead>
 				<tbody>
 					@foreach ($categories as $category)
-						@if (count($category->medias) > 0)
-							<tr>
-								<td>
+						<tr>
+							<td>
 
-									<a href="{{ url('media/' . $category->id ) }}" style="font-weight: 600">{{ $category->categories }}</a>
-									<div class="row-actions">
-										<a href="{{ url('media/' . $category->id ) }}" class="text-secondary"><small><i class="far fa-eye"></i> View</small></a>
-									</div>
-								</td>
-								<td width="10%">0</td>
-								<td width="10%">{{ date('Y/m/d', strtotime($category->created_at)) }}</td>
-							</tr>
-						@endif
+								<a href="{{ route('cat.show', ['category' => $category->cat_slug]) }}" style="font-weight: 600">{{ $category->categories }}</a>
+								<div class="row-actions">
+									<a href="{{ route('cat.show', ['category' => $category->cat_slug]) }}" class="text-secondary"><small><i class="far fa-eye"></i> View</small></a>
+								</div>
+							</td>
+							<td width="10%">0</td>
+							<td width="10%">{{ date('Y/m/d', strtotime($category->created_at)) }}</td>
+						</tr>
 					@endforeach
 				</tbody>
 			</table>

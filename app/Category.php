@@ -13,4 +13,9 @@ class Category extends Model
     {
     	return $this->belongsToMany(Category_media::class, 'category_media', 'category_id', 'media_id');
     }
+
+    public function getRouteKeyName()
+    {
+    	return 'cat_slug';
+    }
 }
