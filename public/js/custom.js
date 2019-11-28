@@ -31,6 +31,13 @@ jQuery(document).ready(function($){
 			}
 		});
 	});
+
+	// Snippet Actions Hover_____________________________________________________________________________________________________
+	$("table.table-hover tr").hover(function(e) {
+		$(this).find('td').find('.row-actions').addClass('visible');
+	},function(e){
+		$(this).find('td').find('.row-actions').removeClass('visible');
+	});
 });
 
 function copyFunction(id) {

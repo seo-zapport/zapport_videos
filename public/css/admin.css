@@ -217,6 +217,18 @@
   margin-bottom: 24px;
 }
 
+.row-actions {
+  color: #ddd;
+  font-size: 12px;
+  padding: 2px 0 0;
+  position: relative;
+  left: -9999em;
+}
+
+.row-actions.visible {
+  position: static;
+}
+
 /*--------------------------------------------------------------
 ## Admin Media
 --------------------------------------------------------------*/

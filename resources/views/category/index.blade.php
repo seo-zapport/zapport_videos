@@ -1,43 +1,54 @@
 @extends('layouts.app')
 
 @section('active_category','active')
+
+@section('heading')
+    <i class="fas fa-list text-secondary"></i> Category
+@endsection
+
 @section('content')
 
-<div class="table-responsive">
-    <table class="table table-hover user-roles">
-        <thead class="thead-dark">
-            <tr>
-                <th>Category</th>
-                <th>No. of videos</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-        	@foreach ($categories as $category)
-        		<tr>
-        			<td>{{ strtoupper($category->categories) }}</td>
-        			<td>{{ count($category->medias) }}</td>
-        			<td>
-        				<div class="form-group d-inline-flex">
-	        				<a class="btn btn-info text-white mr-2" href="#" data-toggle="modal" data-target="#modal-{{ $category->cat_slug }}">Edit</a>
-	        				<form action="{{ route('category.destroy', ['category'=>$category->id]) }}" method="post">
-	        					@csrf
-	        					@method('DELETE')
-	        					<button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete {{ ucfirst($category->categories) }} ?')">Delete</button>
-	        				</form>
-        				</div>
-        			</td>
-        		</tr>
-        	@endforeach
-		@include('layouts.errors')
-		@if (session('delete_error'))
-			<div class="alert alert-danger alert-posts">
-				{{ session('delete_error') }}
-			</div>
-		@endif	
-        </tbody>
-    </table>
+<div class="card">
+	<div class="card-body p-3">
+		<div class="table-responsive">
+		    <table class="table table-hover user-roles">
+		        <thead class="thead-dark">
+		            <tr>
+		                <th>Category</th>
+						<th width="10%">No. of videos</th>
+						<th width="10%">Date</th>
+		            </tr>
+		        </thead>
+		        <tbody>
+		        	@foreach ($categories as $category)
+		        		<tr>
+		        			<td>
+		        				{{ strtoupper($category->categories) }}
+		        				<div class="row-actions">
+			        				<a class="btn btn-link text-info btn-sm d-inline-block px-1 py-0" href="#" data-toggle="modal" data-target="#modal-{{ $category->cat_slug }}">Edit</a>
+			        				<form action="{{ route('category.destroy', ['category'=>$category->id]) }}" method="post" class="d-inline-block">
+			        					@csrf
+			        					@method('DELETE')
+			        					<button class="btn btn-link text-danger btn-sm px-1 py-0" onclick="return confirm('Are you sure you want to delete {{ ucfirst($category->categories) }} ?')">Delete</button>
+			        				</form>
+		        				</div>
+		        			</td>
+		        			<td width="10%">{{ count($category->medias) }}</td>
+		        			<td width="10%">{{ date('Y/m/d', strtotime($category->created_at)) }}</td>
+		        		</tr>
+		        	@endforeach
+				@include('layouts.errors')
+				@if (session('delete_error'))
+					<div class="alert alert-danger alert-posts">
+						{{ session('delete_error') }}
+					</div>
+				@endif	
+		        </tbody>
+		    </table>
+		</div>		
+	</div>
 </div>
+
 
 <!-- Modal Add -->
 @foreach ($categories as $category)
