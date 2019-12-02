@@ -120,6 +120,14 @@
   color: #fff;
 }
 
+#zp-admin-menu-wrap .submenu .nav-link.active,
+#zp-admin-menu-wrap .submenu .nav-link:active,
+#zp-admin-menu-wrap .submenu .nav-link:focus,
+#zp-admin-menu-wrap .submenu .nav-link:hover {
+  background-color: transparent;
+  color: #00efdd;
+}
+
 #zp-admin-menu-wrap .zp-user-info {
   height: 80px;
   padding: 10px 15px 10px 15px;

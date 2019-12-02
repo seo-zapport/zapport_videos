@@ -7,6 +7,7 @@ jQuery(document).ready(function($){
 	$("#cat_form").on('submit' ,function(e){
 		e.preventDefault();
 		var categories = $('#cat_form input[name="categories"]').val();
+		console.log(categories);
 		$.ajaxSetup({
 			headers: {
 			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -14,7 +15,8 @@ jQuery(document).ready(function($){
 		});
 		$.ajax({
 			type: 'POST',
-			url: '/Dashboard/category',
+			//url: '/Dashboard/category',
+			url: '/category',
 			data: { categories:categories },
 			dataType: 'json',
 			success: function(response)
@@ -68,6 +70,19 @@ jQuery(document).ready(function($){
 		  }
 		}
 	});
+
+	// Output file name_____________________________________________________________________________________________________
+	$("#mediaForm input[name='file_name']").change(function(e) {
+		e.preventDefault();
+		document.getElementById("slctdFile").innerHTML = '';
+		var file = $(this).val().replace(/C:\\fakepath\\/i, '');
+		$("#slctdFile").append(file);
+	});
+
+	$("#mediaForm").on('submit', function(){
+		$("#pubMedia").prop('disabled', true);
+	});
+
 });
 
 function copyFunction(id) {

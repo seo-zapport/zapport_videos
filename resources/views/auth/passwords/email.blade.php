@@ -1,4 +1,9 @@
 @extends('layouts.app')
+@section('active_reset','active')
+
+@section('heading')
+    <i class="fas fa-user-edit text-secondary"></i> Reset Password
+@endsection
 
 @section('content')
 <div class="container">

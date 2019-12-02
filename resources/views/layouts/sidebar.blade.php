@@ -25,7 +25,7 @@
 							<a class="nav-link @yield('active_library')" href="{{ route('media.index') }}"><i class="fas fa-photo-video"></i> Library</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link @yield('active_category')" href="{{ route('category.index') }}"><i class="fas fa-photo-video"></i> Categories</a>
+							<a class="nav-link @yield('active_category')" href="{{ route('category.index') }}"><i class="fas fa-list"></i> Categories</a>
 						</li>
 					</ul>
 				</div>
@@ -34,6 +34,7 @@
 	    @endif
 	    @if (Gate::check('isSuperAdmin'))
 		    <li class="nav-item"><a class="nav-link @yield('active_register')" href="{{ route('register') }}"><i class="fas fa-user-edit"></i> Register User</a></li>
+		    <li class="nav-item"><a class="nav-link @yield('active_reset')" href="{{ route('password.request') }}"><i class="fas fa-user-edit"></i> Reset Password</a></li>
 		    <li class="nav-item"><a class="nav-link @yield('active_user')" href="{{ route('admin.index') }}"><i class="fas fa-users"></i> Users</a></li>
 		    <li class="nav-item"><a class="nav-link @yield('active_roles')" href="{{ route('role.index') }}"><i class="fas fa-cogs"></i> Roles</a></li>
 	  @endif

@@ -51,11 +51,22 @@
 		}
 	}
 
+	
+
 	//*sub-menu*/
 	.submenu{
 		background-color:#107d76;
 		color: #fff;
+		.nav-link {
+		&.active,
+		&:active,
+		&:focus,
+		&:hover{
+			background-color: transparent;
+			color: #00efdd;
+		}
 	}
+}
 	//*sidebar-profile*/
 	.zp-user-info{
 	    height: 80px;

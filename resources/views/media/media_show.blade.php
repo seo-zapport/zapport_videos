@@ -90,15 +90,6 @@
 											</div>
 										</div>
 									</div>
-									<div class="setting">
-										<span class="name">Embeded iframe</span>
-										<div class="input-group">
-											<textarea class="form-control" aria-label="textarea" id="copyTa{{ str_replace($arr, $arr2, $category->cat_slug).str_replace($arr, $arr2, $media->file_name) }}" readonly><iframe width="560" height="315" src="{{ asset('storage/uploaded/media/'.$category->cat_slug.'/'.$media->file_name) }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></textarea>
-											<div class="input-group-append">
-												<button id="copyTa{{ str_replace($arr, $arr2, $category->cat_slug).str_replace($arr, $arr2, $media->file_name) }}" class="btn btn-success" onclick="copyFunction($(this).attr('id'))">Copy</button>
-											</div>
-										</div>
-									</div>
 									<span class="clearfix"></span>
 									<hr/>
 									<div class="actions">

@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<form action="{{ route('media.store') }}" method="post" enctype="multipart/form-data">
+<form id="mediaForm" action="{{ route('media.store') }}" method="post" enctype="multipart/form-data">
 @csrf
 <div class="row">
     <div class="col-9">
@@ -17,19 +17,12 @@
                             Select Files
                     </label>
                     <br>
+                    <span id="slctdFile" class="text-muted mb-2 mt-2"></span>
                     <small id="errorlogMedia" class="text-muted mb-2 mt-2"></small>
                     <div class="uploader_wrap">
                         <input type="file" name="file_name" id="file_name" class="form-control-file" required>
                     </div>
                 </div>                
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <div class="form-group">
-                    <label for="meta" ><strong>Meta</strong></label>
-                    <input type="text" name="meta" class="form-control" placeholder="Enter Meta here" required>
-                </div>
             </div>
         </div>
     </div>
@@ -55,7 +48,7 @@
             <div class="card-body">
                 <div class="header-title"><p><strong>Publish</strong></p> <hr></div>
                 <div class="form-group">
-                    <button class="btn btn-primary btn-block">Submit</button>
+                    <button id="pubMedia" class="btn btn-primary btn-block">Submit</button>
                 </div>
             </div>
         </div>

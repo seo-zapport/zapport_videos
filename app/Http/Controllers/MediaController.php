@@ -61,29 +61,38 @@ class MediaController extends Controller
             $atts = $request->except('category_id');
             $arr = [];
             foreach ($request->input('category_id') as $cats) {
-                $arr[] = Category::find($cats);
+                $arr[] = Category::where('id', $cats)->whereDoesntHave('medias', function ($query) use ($request){
+                    $search = array(" ", "(", ")", "_", "-", "/", "\\", "\'", "*", "=", "+", "@", "%", "^");
+                    $stipedName = str_replace($search, "", $request->file_name->getClientOriginalName());
+                    $fileName = $stipedName;
+                    $query->where('file_name', $fileName);
+                })->get();
             }
             if ($request->has('file_name')) {
                 $search = array(" ", "(", ")", "_", "-", "/", "\\", "\'", "*", "=", "+", "@", "%", "^");
                 $stipedName = str_replace($search, "", $request->file_name->getClientOriginalName());
                 $fileName = $stipedName;
-                $mediaSearch = Media::where('file_name', $fileName)->first();
-                if ($mediaSearch === NULL) {
-                    foreach ($arr as $cate) {
-                        $filepath = 'public/uploaded/media/'.$cate->cat_slug;
+                foreach ($arr as $cate) {
+                    if (count($cate) != 0) {
+                        $filepath = 'public/uploaded/media/'.$cate[0]->cat_slug;
                         $request->file('file_name')->storeAs($filepath, $fileName);
                     }
-                    $atts['file_name'] = $fileName;
+                }
+                $atts['file_name'] = $fileName;
+                $mediaSearch = Media::where('file_name', $fileName)->first();
+                if ($mediaSearch === NULL) {
                     $lastInserted = Media::create($atts);
-                    $cat_ids = $request->input('category_id');
-                    foreach ($cat_ids as $cat_id) {
+                }else{
+                    $lastInserted = $mediaSearch;
+                }
+                $cat_ids = $request->input('category_id');
+                foreach ($cat_ids as $cat_id) {
+                    if ($lastInserted->categories()->where('id', $cat_id)->doesntExist() == true) {
                         $cat = Category::find($cat_id);
                         $cat->medias()->attach($lastInserted->id);
                     }
-                    return back();
-                }else{
-                    return back()->with('dup_vid', 'Video already exists!');
                 }
+                return back();
             }
             
         }else{

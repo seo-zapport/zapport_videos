@@ -26,7 +26,7 @@
 		        				{{ strtoupper($category->categories) }}
 		        				<div class="row-actions">
 			        				<a class="btn btn-link text-info btn-sm d-inline-block px-1 py-0" href="#" data-toggle="modal" data-target="#modal-{{ $category->cat_slug }}">Edit</a>
-			        				<form action="{{ route('category.destroy', ['category'=>$category->id]) }}" method="post" class="d-inline-block">
+			        				<form action="{{ route('category.destroy', ['category'=>$category->cat_slug]) }}" method="post" class="d-inline-block">
 			        					@csrf
 			        					@method('DELETE')
 			        					<button class="btn btn-link text-danger btn-sm px-1 py-0" onclick="return confirm('Are you sure you want to delete {{ ucfirst($category->categories) }} ?')">Delete</button>
@@ -62,7 +62,7 @@
 	                </button>
 	            </div>
 	            <div class="modal-body">
-	            	<form action="{{ route('category.update', ['category'=>$category->id]) }}" method="post">
+	            	<form action="{{ route('category.update', ['category'=>$category->cat_slug]) }}" method="post">
 	            		@csrf
 	            		@method('PUT')
 	            		<div class="form-group">

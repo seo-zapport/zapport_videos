@@ -20,6 +20,7 @@
 				</thead>
 				<tbody>
 					@foreach ($categories as $category)
+						@if (count($category->medias) > 0)
 						<tr>
 							<td>
 								<a href="{{ route('cat.show', ['category' => $category->cat_slug]) }}" style="font-weight: 600">{{ $category->categories }}</a>
@@ -30,6 +31,7 @@
 							<td width="10%">{{ count($category->medias) }}</td>
 							<td width="10%">{{ date('Y/m/d', strtotime($category->created_at)) }}</td>
 						</tr>
+						@endif
 					@endforeach
 				</tbody>
 			</table>

@@ -24,8 +24,7 @@ class MediaRequest extends FormRequest
     public function rules()
     {
         return [
-            'meta'  =>  'required',
-            'file_name'  =>  'required|unique:media',
+            'file_name'  =>  'required|mimes:mp4',
             'category_id'   =>  'required',
         ];
     }
@@ -38,8 +37,8 @@ class MediaRequest extends FormRequest
     public function messages()
     {
         return [
-            'meta.required'  =>  'Meta is required',
             'file_name.required'  =>  'File name is required',
+            'file_name.mimes'  =>  'File must be a file of type: mp4',
             'category_id.required'  =>  'Select at least One Category',
         ];
     }
